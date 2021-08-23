@@ -1,0 +1,77 @@
+{
+    "name": "PlayerActions",
+    "maps": [
+        {
+            "name": "MapMovement",
+            "id": "c49c700b-2033-43a7-9433-ec0de5046f92",
+            "actions": [
+                {
+                    "name": "MapNavigation",
+                    "type": "Button",
+                    "id": "2697ba7a-2125-4156-a67d-d32ab6a5baa1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "KeyboadNav",
+                    "id": "5afb92ad-4b5f-4dc4-9d1a-4a1ebfbbfe73",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapNavigation",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "055bdd71-20b9-4f79-abee-32ef83735a45",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapNavigation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "370ed57c-4d81-4436-a4a2-ccd73666d61a",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapNavigation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "10594774-535b-499d-b0ba-916a5e6b9df5",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapNavigation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "f47f5cff-cf1b-4ea4-bc7f-1b6a26f922ea",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MapNavigation",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
