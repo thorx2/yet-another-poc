@@ -63,25 +63,34 @@ public class GameManager : MonoBehaviour, IPCControler
         playerRef.transform.DOMoveY(1.0f, 0.1f);
     }
 
+    private bool playerMoving = false;
+
     public IEnumerator MovePlayerToCell(int x, int y)
     {
-        var path = Astar.GetInstance.FindPathBetween((int)playerPosition.x, (int)playerPosition.y, x, y);
-
-        foreach (int tile in path)
+        if (!playerMoving)
         {
-            var mySequence = DOTween.Sequence();
-            Vector3 pathPos = mapTiles[tile].transform.position;
-            pathPos.y = 1.0f;
-            yield return mySequence.Append(playerRef.transform.DOMove(pathPos, 0.5f)).OnComplete(() =>
+            playerMoving = true;
+            
+            var path = Astar.GetInstance.FindPathBetween((int)playerPosition.x, (int)playerPosition.y, x, y);
+
+            foreach (int tile in path)
             {
-                playerRef.transform.position = pathPos;
-            }).WaitForCompletion();
-        }
+                var mySequence = DOTween.Sequence();
+                Vector3 pathPos = mapTiles[tile].transform.position;
+                pathPos.y = 1.0f;
+                yield return mySequence.Append(playerRef.transform.DOMove(pathPos, 0.5f)).OnComplete(() =>
+                {
+                    playerRef.transform.position = pathPos;
+                }).WaitForCompletion();
+            }
 
-        if (path.Count > 0)
-        {
-            playerPosition.x = x;
-            playerPosition.y = y;
+            if (path.Count > 0)
+            {
+                playerPosition.x = x;
+                playerPosition.y = y;
+
+                playerMoving = false;
+            }
         }
     }
 }
